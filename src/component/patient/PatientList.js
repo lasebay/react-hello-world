@@ -1,16 +1,15 @@
-// import React from 'react'
-// import PatientSummary from 'PatientList';
+import React from 'react'
+import PatientSummary from './PatientSummary';
 
 
-// const PatientList = () => {
-//     return (
-//         <div className="project-list section">  
-//             <span className="card-title ">PatientName</span>
-//             <p>FirstName</p>
-//             <p>LastName</p>
-//         </div>
+const PatientList = () => {
+    return (
+        <div className="project-list section">  
+            <PatientSummary />
+            <PatientSummary />
+            <PatientSummary />
+        </div>
+    )
+}
 
-//     )
-// }
-
-// export default PatientList
+export default PatientList
