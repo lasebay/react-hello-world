@@ -7,11 +7,11 @@ class Dashboard extends Component {
             <div className = "dashboard">
                 <div className ="row">
                     <div className = "grid-example col s12 m6">
-                        <h2>Check In</h2>
+                        <h4 style = {textStyle}>Check In</h4>
                         <PatientList />
                     </div>
                     <div className = "grid-example col s12 m6">
-                        <h2>In Progress</h2>
+                        <h4 style = {textStyle}>In Progress</h4>
                         <PatientList />
                     </div>
                         
@@ -23,3 +23,8 @@ class Dashboard extends Component {
 }
 
 export default Dashboard
+
+const textStyle = {
+     textAlign: 'center',
+     color: '#636e72',
+};
