@@ -11,6 +11,7 @@ class Dashboard extends Component {
             super(props);
             this.state = {
                 search:'',
+                search2:'',
                 content: props.contents
             };
         }
@@ -19,16 +20,32 @@ class Dashboard extends Component {
                 search: event.target.value.substr(0,20)
             });
         }
+
+        updateSearchProgress(event) {
+            this.setState({
+                search2: event.target.value.substr(0,20)
+            });
+        }
+        updateDelete(item) {
+
+        }
     render() {
         console.log("props",this.props);
         const {data} = this.props;
+        const {data2} = this.props;
          console.log("props1",data);
+         console.log("propsdata2",data2);
         let filteredPatient = data.filter(
             (data) => {
                 return data.name.indexOf(this.state.search) !== -1;
             }
         )
         console.log("props2",filteredPatient);
+        let filteredInProgressPatient = data2.filter(
+            (data2) => {
+                return data2.name.indexOf(this.state.search2) !== -1;
+            }
+        )
         return(
             // let filteredPatient = this.props.patients;
 
@@ -80,15 +97,16 @@ class Dashboard extends Component {
                     <div className = "grid-example col s12 m6">
                     
                         <h4 style = {textStyle}>In Progress</h4>
-                        <ul>
-
                         <div>
                             <input type = "text"
-                                value = {this.state.search}
-                                onChange={this.updateSearch.bind(this)}
+                                value = {this.state.search2}
+                                onChange={this.updateSearchProgress.bind(this)}
                             />
                         </div>
-                        {filteredPatient.map((item)=> {
+                        <ul>
+
+                        
+                        {filteredInProgressPatient.map((item)=> {
                             return (
                               <div className="card z-depth-0 project-summary grey lighten-5" style = {{alignItems: 'center'}} >
                                 <Popup trigger={<a key={item.name} >
@@ -132,7 +150,8 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
     // console.log('State on subscribe', state);
     return {
-        data: state.dash.contents
+        data: state.dash.contents,
+        data2: state.dash.contents2
     }
 };
 export default connect(mapStateToProps)(Dashboard)

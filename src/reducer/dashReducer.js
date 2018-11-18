@@ -12,6 +12,11 @@ const initState = {
        {"name":"Z M", "ssn" :"123123123", "comp": "headache"}, 
        {"name":"R L", "ssn" :"123123123", "comp": "headache"}
     ],
+    contents2:[
+        {"name":"John Doe", "ssn": "123123123", "comp": "stomache"},
+        {"name":"Taylor Swift", "ssn" :"123123123", "comp": "pain"}, 
+        {"name":"Irene Smith", "ssn" :"123123123", "comp": "headache"}
+    ],
     form:[],
     error:'',
     loading: false,
