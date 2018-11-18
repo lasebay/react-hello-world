@@ -6,6 +6,7 @@ const PatientList = () => {
     return (
         <div className="project-list section" style = {playoutStyle}>  
             <PatientSummary />
+            
             <PatientSummary />
             <PatientSummary />
             <PatientSummary />
