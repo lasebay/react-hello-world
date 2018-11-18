@@ -1,29 +1,13 @@
 import React from 'react'
 import Popup from "reactjs-popup";
 import Search from "react-search-box";
+import dashReducer from '../../reducer/dashReducer';
 
-const PatientSummary = () => {
-    
-    const data =[{"name":"K Q", "ssn": "123123123", "comp": "headache"},{"name":"Z M", "ssn" :"123123123", "comp": "headache"}, {"name":"R L", "ssn" :"123123123", "comp": "headache"}];
-    const test = 
-    function handleClick(e) {
-      e.preventDefault();
-      window.confirm(
-        "First Name",
-        "Last Name",
-        "Are you sure you wish to delete this item?"
-        
-        
-    )
-    console.log('The link was clicked.');
-  }
+const PatientSummary = ({data}) => {
+  console.log("patientsummary", data)
   return (
-    // <div className="card z-depth-0 project-summary">
-      // {/* <div className="card-content grey-text text-darken-3 grey lighten-5" style ={styles}> */}
-      //  {/* <span className="card-title">Patient Name</span> */}
-      //   {/* <button class="waves-effect waves-light btn-small" href="#" onClick={handleClick}>View Info</button> */}
             <div>
-              {data.map(function(d, idx){
+              {data && data.map(function(d, idx){
                 return (
                 <div className="card z-depth-0 project-summary grey lighten-5" style = {{alignItems: 'center'}} >
                 <Popup trigger={<a key={idx} >
@@ -52,16 +36,10 @@ const PatientSummary = () => {
               </Popup>
               </div>
                 
-                
-                
-                
-                
-                
+                       
                 )
             })}
             </div>
-    //    {/* </div> */}
-    //  </div>
   )
 }
 

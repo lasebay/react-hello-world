@@ -1,11 +1,15 @@
 import React, {Component} from 'react'
 import PatientList from '../patient/PatientList'
 import PatientSummary from '../patient/PatientSummary'
+import dashReducer from '../../reducer/dashReducer';
+//connect to store via import
+import { connect } from 'react-redux';
 class Dashboard extends Component {
-     constructor() {
-            super();
+        constructor(props) {
+            super(props);
             this.state = {
-                search:''
+                search:'',
+                content: props.contents
             };
         }
         updateSearch(event) {
@@ -14,8 +18,9 @@ class Dashboard extends Component {
             });
         }
     render() {
-        
-        const data =[{"name":"test1"},{"name":"test2"}];
+        console.log("props",this.props);
+        const {data} = this.props;
+         console.log("props1",data);
         let filteredPatient = data.filter(
             (data) => {
                 return data.name.indexOf(this.state.search) !== -1;
@@ -44,7 +49,7 @@ class Dashboard extends Component {
                             onChange={this.updateSearch.bind(this)}
                         />
                     </div>
-                            <PatientSummary />
+                            <PatientSummary  data={data}/>
                             {/* <PatientSummary /> */}
 
                             
@@ -77,7 +82,13 @@ class Dashboard extends Component {
 
 }
 
-export default Dashboard
+const mapStateToProps = (state) => {
+    // console.log('State on subscribe', state);
+    return {
+        data: state.dash.contents
+    }
+};
+export default connect(mapStateToProps)(Dashboard)
 
 const textStyle = {
      textAlign: 'center',
