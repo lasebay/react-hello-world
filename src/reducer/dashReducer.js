@@ -4,7 +4,7 @@ import {
     SEARCH_CHECK_IN,
     SEARCH_IN_PROGRESS,
 } from '../actions/types';
-
+import {SEARCH} from '../actions/dashAction';
 
 const initState = {
     contents:[
@@ -17,8 +17,18 @@ const initState = {
     loading: false,
 }
 
+
+
 const dashReducer = (state = initState, action) => {
-    return state
+    switch(action.type) {
+    case SEARCH_CHECK_IN: {
+      const {value} = action;
+      const form = state.contents.filter((val) => val.includes(value.name));
+      return {...state, value, form};
+    }
+    default:
+      return state;
+    }
     
 }
 export default dashReducer;

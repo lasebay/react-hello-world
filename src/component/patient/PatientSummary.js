@@ -3,43 +3,45 @@ import Popup from "reactjs-popup";
 import Search from "react-search-box";
 import dashReducer from '../../reducer/dashReducer';
 
+
 const PatientSummary = ({data}) => {
-  console.log("patientsummary", data)
+  
+
   return (
-            <div>
-              {data && data.map(function(d, idx){
-                return (
-                <div className="card z-depth-0 project-summary grey lighten-5" style = {{alignItems: 'center'}} >
-                <Popup trigger={<a key={idx} >
-                    <div className="" style = {buttonstyle}>
-                    {d.name}
-                    <i style = {iconstyle} class="material-icons right">check_circle</i>
-                    </div>
-                    
-                    </a>} modal>
-                      {close => (
-                      <div class="card" style = {modalstyle}>
-                        <a className="close" onClick={close} style = {closeStyle}>
-                        &times;
-                        </a>
-                      <div class = "card-title">{d.name}</div>
-                      <div className="content" style = {modalContent}>
-                      {' '}
-                      SSN: {d.ssn}
-                        <br />
-                      Cheif Complaints: {d.comp}
-                      </div>
-                      <div className="actions">
-                    </div>
-                  </div>
-                )}
-              </Popup>
-              </div>
+        <div>
+          {data && data.map(function(d, idx){
+            return (
+            <div className="card z-depth-0 project-summary grey lighten-5" style = {{alignItems: 'center'}} >
+            <Popup trigger={<a key={idx} >
+                <div className="" style = {buttonstyle}>
+                {d.name}
+                <i style = {iconstyle} class="material-icons right">check_circle</i>
+                </div>
                 
-                       
-                )
-            })}
-            </div>
+                </a>} modal>
+                  {close => (
+                  <div class="card" style = {modalstyle}>
+                    <a className="close" onClick={close} style = {closeStyle}>
+                    &times;
+                    </a>
+                  <div class = "card-title">{d.name}</div>
+                  <div className="content" style = {modalContent}>
+                  {' '}
+                  SSN: {d.ssn}
+                    <br />
+                  Cheif Complaints: {d.comp}
+                  </div>
+                  <div className="actions">
+                </div>
+              </div>
+            )}
+          </Popup>
+          </div>
+            
+                    
+            )
+        })}
+        </div>
   )
 }
 
