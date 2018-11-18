@@ -26,9 +26,12 @@ class Dashboard extends Component {
                 search2: event.target.value.substr(0,20)
             });
         }
-        updateDelete(item) {
-
-        }
+        // _submitDelete = (item) => {
+        //     console.log("submit delete", item);
+        //     let id = this.props.id;
+        //     this.props.postDelete({id});  
+        //     this.setState(this.state);
+        // }
     render() {
         console.log("props",this.props);
         const {data} = this.props;
@@ -112,7 +115,8 @@ class Dashboard extends Component {
                                 <Popup trigger={<a key={item.name} >
                                     <div className="" style = {buttonstyle}>
                                     {item.name}
-                                    <i style = {iconstyle} class="material-icons right">check_circle</i>
+                                    <i style = {iconstyle} class="material-icons right">all_inclusive</i>
+                                    
                                     </div>
                                     
                                     </a>} modal>
@@ -154,6 +158,14 @@ const mapStateToProps = (state) => {
         data2: state.dash.contents2
     }
 };
+
+//  const mapDispatchToProps = dispatch =>
+//     bindActionCreators(
+//         {
+//         ...Games
+//         },
+//         dispatch
+//     );
 export default connect(mapStateToProps)(Dashboard)
 
 const textStyle = {

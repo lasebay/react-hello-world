@@ -8,14 +8,14 @@ import {SEARCH} from '../actions/dashAction';
 
 const initState = {
     contents:[
-       {"name":"K Q", "ssn": "123123123", "comp": "headache"},
-       {"name":"Z M", "ssn" :"123123123", "comp": "headache"}, 
-       {"name":"R L", "ssn" :"123123123", "comp": "headache"}
+       {"id": 1, "name":"K Q", "ssn": "123123123", "comp": "headache"},
+       {"id": 2,"name":"Z M", "ssn" :"123123123", "comp": "headache"}, 
+       {"id": 3,"name":"R L", "ssn" :"123123123", "comp": "headache"}
     ],
     contents2:[
-        {"name":"John Doe", "ssn": "123123123", "comp": "stomache"},
-        {"name":"Taylor Swift", "ssn" :"123123123", "comp": "pain"}, 
-        {"name":"Irene Smith", "ssn" :"123123123", "comp": "headache"}
+        {"id": 1, "name":"John Doe", "ssn": "123123123", "comp": "stomache"},
+        {"id": 2,"name":"Taylor Swift", "ssn" :"123123123", "comp": "pain"}, 
+        {"id": 3,"name":"Irene Smith", "ssn" :"123123123", "comp": "headache"}
     ],
     form:[],
     error:'',
